@@ -4,7 +4,6 @@
     outline: none;
     box-sizing: border-box;
     font-family: "Roboto", serif;
-
 }
 
 body {
@@ -14,43 +13,77 @@ body {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 img {
     width: 500px;
     margin-bottom: -140px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.2s;
 }
 
 h2 {
-    font-weight: 400;
-    font-size: 32px;
+    font-weight: 800;
+    font-size: 40px;
     line-height: 38px;
     font-style: normal;
     color: #ffffff;
     text-align: center;
     margin-top: 126px;
     margin-bottom: 26px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.4s;
 }
 
 input {
-background: rgba(255, 255, 255, 0.25);
-border: 1px solid rgba(255, 255, 255, 0.2);
-border-radius: 14px;
-height: 74px;
-width: 342px;
-padding-left: 20px;
-font-weight: 500;
-font-size: 20px;
-line-height: 47px;
-color: #ffffff;
-opacity: 0.7;
-margin-right: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    height: 70px;
+    width: 300px;
+    padding-left: 18px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 47px;
+    color: #ffffff;
+    opacity: 0.7;
+    margin-right: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.input-container {
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 
 .input.min {
     margin-left: 62px;
 }
 
+.result {
+    position: relative;
+    top: 30px;
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: bold;
+    color: rgb(10, 240, 10);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 1s;
+}
 
 button {
     background-color: #aec346;
@@ -64,33 +97,64 @@ button {
     margin-top: 80px;
     border: none;
     cursor: pointer;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.8s;
 }
-
 
 button:hover {
     opacity: 0.9;
 }
 
-button:active {
-    opacity: 0.8;
+@keyframes balanco {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+    75% {
+        transform: rotate(-3deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 @keyframes mudarCor {
     0% { background-color: green; }
     50% { background-color: red; }
     100% { background-color: blue; }
-  }
-  
-  button {
+}
+
+button {
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     animation: mudarCor 2s infinite alternate; /* Animação infinita */
-  }
+}
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-  @media screen and(min-width: 600px) {
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 600px) {
     img {
         margin-left: auto;
         margin-right: auto;
@@ -102,6 +166,4 @@ button:active {
         margin-left: auto;
         margin-right: auto;
     }
-
-    
-  }
+}
