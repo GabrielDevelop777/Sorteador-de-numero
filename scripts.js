@@ -5,7 +5,6 @@ function generateNumber() {
     const max = Math.floor(document.querySelector(".input-max").value)
     const winner = document.querySelector(".result")
     
-
     if( max > min ) {
         const result = Math.floor(Math.random() * (max - min + 1) + min);
         winner.innerHTML = result
@@ -15,4 +14,3 @@ function generateNumber() {
         winner.style.color = "red";
 
     }
-}
